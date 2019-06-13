@@ -39,11 +39,11 @@ void Relay::off(void)
     _rs = RELAY_OFF;
     if (_sl == NONINVERTED)
     {
-        digitalWrite(_relayPin, HIGH);
+        digitalWrite(_relayPin, LOW);
     }
     else
     {
-        digitalWrite(_relayPin, LOW);
+        digitalWrite(_relayPin, HIGH);
     }
 }
 
