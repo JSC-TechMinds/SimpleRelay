@@ -17,7 +17,7 @@
 #include <ArduinoUnitTests.h>
 #include "../src/SimpleRelay.h"
 
-constexpr static byte INPUT_PIN = 10;
+constexpr static byte OUTPUT_PIN = 10;
 GodmodeState* state = GODMODE();
 
 unittest_setup() {
@@ -25,84 +25,84 @@ unittest_setup() {
 }
 
 unittest(turn_on_non_inverted_relay) {
-    SimpleRelay relay = SimpleRelay(INPUT_PIN);
+    SimpleRelay relay = SimpleRelay(OUTPUT_PIN);
     relay.on();
 
-    assertEqual(HIGH, digitalRead(INPUT_PIN));
+    assertEqual(HIGH, digitalRead(OUTPUT_PIN));
     assertEqual(true, relay.isRelayOn());
 }
 
 unittest(turn_on_inverted_relay) {
-    SimpleRelay relay = SimpleRelay(INPUT_PIN, /* isInverted */ true);
+    SimpleRelay relay = SimpleRelay(OUTPUT_PIN, /* isInverted */ true);
     relay.on();
 
-    assertEqual(LOW, digitalRead(INPUT_PIN));
+    assertEqual(LOW, digitalRead(OUTPUT_PIN));
     assertEqual(true, relay.isRelayOn());
 }
 
 unittest(turn_off_non_inverted_relay) {
-    SimpleRelay relay = SimpleRelay(INPUT_PIN);
+    SimpleRelay relay = SimpleRelay(OUTPUT_PIN);
     relay.on();
     assertEqual(true, relay.isRelayOn());
 
     // Turn off
     relay.off();
 
-    assertEqual(LOW, digitalRead(INPUT_PIN));
+    assertEqual(LOW, digitalRead(OUTPUT_PIN));
     assertEqual(false, relay.isRelayOn());
 }
 
 unittest(turn_off_inverted_relay) {
-    SimpleRelay relay = SimpleRelay(INPUT_PIN, /* isInverted */ true);
+    SimpleRelay relay = SimpleRelay(OUTPUT_PIN, /* isInverted */ true);
     relay.on();
     assertEqual(true, relay.isRelayOn());
 
     // Turn off
     relay.off();
 
-    assertEqual(HIGH, digitalRead(INPUT_PIN));
+    assertEqual(HIGH, digitalRead(OUTPUT_PIN));
     assertEqual(false, relay.isRelayOn());
 }
 
 unittest(toggle_from_off_on_non_inverted_relay) {
-    SimpleRelay relay = SimpleRelay(INPUT_PIN);
+    SimpleRelay relay = SimpleRelay(OUTPUT_PIN);
     assertEqual(false, relay.isRelayOn());
 
     relay.toggle();
 
-    assertEqual(HIGH, digitalRead(INPUT_PIN));
+    assertEqual(HIGH, digitalRead(OUTPUT_PIN));
     assertEqual(true, relay.isRelayOn());
 }
 
 unittest(toggle_from_on_non_inverted_relay) {
-    SimpleRelay relay = SimpleRelay(INPUT_PIN);
+    SimpleRelay relay = SimpleRelay(OUTPUT_PIN);
     relay.on();
     assertEqual(true, relay.isRelayOn());
 
     relay.toggle();
 
-    assertEqual(LOW, digitalRead(INPUT_PIN));
+    assertEqual(LOW, digitalRead(OUTPUT_PIN));
     assertEqual(false, relay.isRelayOn());
 }
 
 unittest(toggle_from_off_on_inverted_relay) {
-    SimpleRelay relay = SimpleRelay(INPUT_PIN, /* isInverted */ true);
+    SimpleRelay relay = SimpleRelay(OUTPUT_PIN, /* isInverted */ true);
     assertEqual(false, relay.isRelayOn());
 
     relay.toggle();
 
-    assertEqual(LOW, digitalRead(INPUT_PIN));
+    assertEqual(LOW, digitalRead(OUTPUT_PIN));
     assertEqual(true, relay.isRelayOn());
 }
 
 unittest(toggle_from_on_inverted_relay) {
-    SimpleRelay relay = SimpleRelay(INPUT_PIN, /* isInverted */ true);
+    SimpleRelay relay = SimpleRelay(OUTPUT_PIN, /* isInverted */ true);
     relay.on();
     assertEqual(true, relay.isRelayOn());
 
     relay.toggle();
 
-    assertEqual(HIGH, digitalRead(INPUT_PIN));
+    assertEqual(HIGH, digitalRead(OUTPUT_PIN));
     assertEqual(false, relay.isRelayOn());
 }
 

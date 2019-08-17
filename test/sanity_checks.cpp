@@ -17,7 +17,7 @@
 #include <ArduinoUnitTests.h>
 #include "../src/SimpleRelay.h"
 
-constexpr static byte INPUT_PIN = 10;
+constexpr static byte OUTPUT_PIN = 10;
 GodmodeState* state = GODMODE();
 
 unittest_setup() {
@@ -26,21 +26,21 @@ unittest_setup() {
 
 unittest(pin_voltage_is_set_to_low_for_non_inverted_relay) {
     // Make sure this state is reset
-    state->digitalPin[INPUT_PIN] = HIGH;
+    state->digitalPin[OUTPUT_PIN] = HIGH;
 
-    SimpleRelay relay = SimpleRelay(INPUT_PIN);
+    SimpleRelay relay = SimpleRelay(OUTPUT_PIN);
 
-    assertEqual(LOW, digitalRead(INPUT_PIN));
+    assertEqual(LOW, digitalRead(OUTPUT_PIN));
     assertEqual(false, relay.isRelayOn());
 }
 
 unittest(pin_voltage_is_set_to_high_for_inverted_relay) {
     // Make sure this state is reset
-    state->digitalPin[INPUT_PIN] = LOW;
+    state->digitalPin[OUTPUT_PIN] = LOW;
 
-    SimpleRelay relay = SimpleRelay(INPUT_PIN, /* isInverted */ true);
+    SimpleRelay relay = SimpleRelay(OUTPUT_PIN, /* isInverted */ true);
 
-    assertEqual(HIGH, digitalRead(INPUT_PIN));
+    assertEqual(HIGH, digitalRead(OUTPUT_PIN));
     assertEqual(false, relay.isRelayOn());
 }
 
