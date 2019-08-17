@@ -36,7 +36,7 @@
  * voltage on output pin to <code>HIGH</code>. In contrary, inverted relay will turn on when output voltage
  * is set to <code>LOW</code>. This parameter is optional and defaults to <code>false</code>.
  */
-SimpleRelay::SimpleRelay(uint8_t pin, bool isInverted = false) {
+SimpleRelay::SimpleRelay(uint8_t pin, bool isInverted) {
     m_pin = pin;
     m_relayOnLogicLevel = isInverted ? LOW : HIGH;
     pinMode(m_pin, OUTPUT);
