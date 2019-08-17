@@ -1,0 +1,15 @@
+compile:
+  libraries: ~
+  platforms:
+    - uno
+    - due
+    - mega2560
+    - leonardo
+
+unittest:
+  libraries: ~
+  platforms:
+    - uno
+    - due
+    - mega2560
+    - leonardo

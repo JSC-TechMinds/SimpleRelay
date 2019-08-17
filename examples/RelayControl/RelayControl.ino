@@ -1,7 +1,9 @@
 /**
- * @brief Control a relay.
+ * @brief Demonstrate control of a relay.
  *
  * This sketch demonstrates using SimpleRelay library to control a relay.
+ * In setup() phase, relay will be turned on and after a second it will be turned off.
+ * In loop() phase, relay state will be periodically changed between "on" and "off".
  *
  * Copyright 2019 JSC electronics
  *

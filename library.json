@@ -1,0 +1,12 @@
+{
+  "name": "SimpleRelay",
+  "keywords": "arduino, relay, control",
+  "description": "SimpleRelay is an Arduino library to control a relay. You can turn relay on, off or toggle between those two states.",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/JSC-electronics/SimpleRelay"
+  },
+  "frameworks": "arduino",
+  "platforms": "*"
+}
