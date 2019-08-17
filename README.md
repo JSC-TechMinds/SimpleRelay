@@ -1,2 +1,2 @@
-# Relay
+# SimpleRelay
 Relay library for Arduino
