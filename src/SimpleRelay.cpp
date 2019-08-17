@@ -20,48 +20,68 @@
  * limitations under the License.
  */
 
-#pragma once
-
 #include "SimpleRelay.h"
+
+/**
+ *
+ * @param pin
+ * @param activeLow
+ */
+
+
+/**
+ * @brief Constructor for the class.
+ * @param pin an output pin to use for the relay control.
+ * @param isInverted sets characteristic of a relay. A relay is non-inverted, when it will turn on after setting
+ * voltage on output pin to <code>HIGH</code>. In contrary, inverted relay will turn on when output voltage
+ * is set to <code>LOW</code>. This parameter is optional and defaults to <code>false</code>.
+ */
+SimpleRelay::SimpleRelay(uint8_t pin, bool isInverted = false) {
+    m_pin = pin;
+    m_relayOnLogicLevel = isInverted ? LOW : HIGH;
+    pinMode(m_pin, OUTPUT);
+    off();
+}
+
+/**
+ * @brief Destructor for the class.
+ */
+SimpleRelay::~SimpleRelay() {
+    // set pin to high impedance
+    pinMode(m_pin, INPUT);
+}
 
 /**
  * @brief  Set relay to <code>ON</code> state.
  */
 void SimpleRelay::on(void) {
-    _rs = RELAY_ON;
-    if (_sl == NONINVERTED) {
-        digitalWrite(_relayPin, HIGH);
-    } else {
-        digitalWrite(_relayPin, LOW);
-    }
+    m_state = State::RELAY_ON;
+    digitalWrite(m_pin, m_relayOnLogicLevel);
 }
 
 /**
  * @brief  Set relay to <code>OFF</code> state.
  */
 void SimpleRelay::off(void) {
-    _rs = RELAY_OFF;
-    if (_sl == NONINVERTED) {
-        digitalWrite(_relayPin, LOW);
-    } else {
-        digitalWrite(_relayPin, HIGH);
-    }
+    m_state = State::RELAY_OFF;
+    digitalWrite(m_pin, m_relayOnLogicLevel == HIGH ? LOW : HIGH);
 }
 
 /**
  * @brief  Toggle relay state.
  */
 void SimpleRelay::toggle(void) {
-    if (_rs == RELAY_ON)
+    if (m_state == State::RELAY_ON) {
         off();
-    else
+    } else {
         on();
+    }
 }
 
 /**
- * @brief Get current state of a relay.
- * @return State of relay.
+ * @brief Get information if a relay is currently <code>ON</code>.
+ * @return <code>true</code> if relay is on, false otherwise.
  */
-RelayState_TypeDef SimpleRelay::getState(void) {
-    return _rs;
+bool SimpleRelay::isRelayOn(void) {
+    return m_state == State::RELAY_ON;
 }

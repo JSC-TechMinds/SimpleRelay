@@ -26,68 +26,44 @@
 
 #include <Arduino.h>
 
-typedef enum {
-    RELAY_OFF,
-    RELAY_ON
-} RelayState_TypeDef;
-
-typedef enum {
-    NONINVERTED,
-    INVERTED
-} SwitchingLogic_TypeDef;
-
 class SimpleRelay {
-private:
-    Relay *_pRelay;
-    int _relayPin;
-    RelayState_TypeDef _rs;
-    SwitchingLogic_TypeDef _sl;
-
 public:
-    /* Constructors */
-    inline SimpleRelay(char relayPin) {
-        this->_relayPin = relayPin;
-        this->_rs = RELAY_OFF;
-        this->_sl = NONINVERTED;
+    SimpleRelay(uint8_t pin, bool isInverted = false);
 
-        pinMode(_relayPin, OUTPUT);
-        off();
-    }
+    ~SimpleRelay();
 
-    inline SimpleRelay(char relayPin, SwitchingLogic_TypeDef logicLevel) {
-        this->_relayPin = relayPin;
-        this->_rs = RELAY_OFF;
-        this->_sl = logicLevel;
+    void on(void);
 
-        pinMode(_relayPin, OUTPUT);
-        off();
-    }
+    void off(void);
 
-    inline SimpleRelay(char relayPin, SwitchingLogic_TypeDef logicLevel, RelayState_TypeDef relayState) {
-        this->_relayPin = relayPin;
-        this->_rs = relayState;
-        this->_sl = logicLevel;
+    void toggle(void);
 
-        pinMode(_relayPin, OUTPUT);
+    bool isRelayOn(void);
 
-        if (_rs == RELAY_ON)
-            on();
-        else
-            off();
-    }
+private:
+    uint8_t m_pin; /**< Output pin bound with this relay instance */
 
-    /* Destructor */
-    inline ~SimpleRelay() {
-        // set pin to high impedance
-        pinMode(_relayPin, INPUT);
-    }
+    /**
+     * Signal levels as read from <code>digitalRead()</code> function, can be either <code>HIGH</code> or
+     * <code>LOW</code>. When you create a new SimpleRelay instance, you specify <code>activeLow</code> boolean parameter.
+     * This variable represents a mapping from the boolean to actual voltage level set on output.
+     *
+     * @see SimpleRelay(uint8_t pin, bool activeLow = true)
+     */
+    byte m_relayOnLogicLevel;
 
-    // public functions declarations
-    void on();
+    /**
+     * @brief States allowed for a Relay to transition into.
+     */
+    enum class State {
+        RELAY_OFF,
+        RELAY_ON
+    };
 
-    void off();
-
-    void toggle();
-
-    RelayState_TypeDef getState(void);
+    /**
+     * This variable holds information on a current state of a relay.
+     *
+     * @see enum class State
+     */
+    State m_state = State::RELAY_OFF;
 };
