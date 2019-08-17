@@ -45,10 +45,10 @@ private:
 
     /**
      * Signal levels as read from <code>digitalRead()</code> function, can be either <code>HIGH</code> or
-     * <code>LOW</code>. When you create a new SimpleRelay instance, you specify <code>activeLow</code> boolean parameter.
+     * <code>LOW</code>. When you create a new SimpleRelay instance, you specify <code>isInverted</code> boolean parameter.
      * This variable represents a mapping from the boolean to actual voltage level set on output.
      *
-     * @see SimpleRelay(uint8_t pin, bool activeLow = true)
+     * @see SimpleRelay(uint8_t pin, bool isInverted = true)
      */
     byte m_relayOnLogicLevel;
 

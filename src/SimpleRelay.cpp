@@ -23,13 +23,6 @@
 #include "SimpleRelay.h"
 
 /**
- *
- * @param pin
- * @param activeLow
- */
-
-
-/**
  * @brief Constructor for the class.
  * @param pin an output pin to use for the relay control.
  * @param isInverted sets characteristic of a relay. A relay is non-inverted, when it will turn on after setting
