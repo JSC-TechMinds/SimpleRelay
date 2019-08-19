@@ -3,7 +3,8 @@
  *
  * This sketch demonstrates using SimpleRelay library to control a relay.
  * In setup() phase, relay will be turned on and after a second it will be turned off.
- * In loop() phase, relay state will be periodically changed between "on" and "off".
+ * In loop() phase, relay state will be periodically changed between "on" and "off" with
+ * two-second period.
  *
  * Copyright 2019 JSC electronics
  *
@@ -27,11 +28,11 @@ SimpleRelay relay = SimpleRelay(RELAY_PIN);
 
 void setup() {
     relay.on();
-    delay(1);
+    delay(1000);
     relay.off();
 }
 
 void loop() {
     relay.toggle();
-    delay(5);
+    delay(2000);
 }
