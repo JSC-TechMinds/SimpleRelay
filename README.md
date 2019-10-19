@@ -4,7 +4,7 @@
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-green.svg)](https://github.com/JSC-electronics/SimpleRelay/blob/master/LICENSE)
 [![Donate](https://img.shields.io/badge/donate-PayPal-blueviolet.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SESX9ABM7V8KA&source=url)
 
-SimpleRelay is an Arduino library for controlling a relay. You can turn relay on, off or toggle between those two states. This library allows user to turn relay on, off or toggle between those two states. User can also define switching logic and check relay state using `isRelayOn()` function.
+SimpleRelay is an Arduino library for controlling a relay. This library allows user to turn relay on, off or toggle between those two states. User can also define switching logic and check relay state using `isRelayOn()` function.
 
 ## Documentation
 - [GitHub Wiki][simple-relay-wiki]
