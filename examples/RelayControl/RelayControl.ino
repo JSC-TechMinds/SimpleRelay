@@ -23,16 +23,21 @@
 
 #include <SimpleRelay.h>
 
-constexpr static byte RELAY_PIN = 10;
-SimpleRelay relay = SimpleRelay(RELAY_PIN);
+constexpr static byte RELAY_1_PIN = 10;
+constexpr static byte RELAY_2_PIN = 11;
+SimpleRelay relay1 = SimpleRelay(RELAY_1_PIN);          /* relay with noninverted (active high) logic */
+SimpleRelay relay2 = SimpleRelay(RELAY_2_PIN, true);    /* relay with inverted (active low) logic */ 
 
 void setup() {
-    relay.on();
+    relay1.on();
+    relay2.on();
     delay(1000);
-    relay.off();
+    relay1.off();
+    relay2.off();
 }
 
 void loop() {
-    relay.toggle();
+    relay1.toggle();
+    relay2.toggle();
     delay(2000);
 }
