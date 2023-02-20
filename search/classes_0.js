@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['simplerelay',['SimpleRelay',['../classSimpleRelay.html',1,'']]]
+  ['simplerelay_0',['SimpleRelay',['../classSimpleRelay.html',1,'']]]
 ];

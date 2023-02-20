@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['contributing_20rules',['Contributing Rules',['../md_CONTRIBUTING.html',1,'']]]
+  ['contributing_20rules_0',['Contributing Rules',['../md_CONTRIBUTING.html',1,'']]]
 ];
