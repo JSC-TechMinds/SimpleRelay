@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['contributing_20rules_0',['Contributing Rules',['../md_CONTRIBUTING.html',1,'']]]
+  ['arduino_20library_0',['SimpleRelay Arduino Library',['../index.html',1,'']]]
 ];
