@@ -7,20 +7,15 @@
   "repository":
   {
     "type": "git",
-    "url": "https://github.com/JSC-electronics/SimpleRelay"
+    "url": "https://github.com/JSC-TechMinds/SimpleRelay"
   },
    "authors":
   [
     {
-      "name": "Vladimír Záhradník",
-      "email": "vladimir.zahradnik@jsce.cz",
-      "url": "https://github.com/vzahradnik",
+      "name": "JSC TechMinds",
+      "email": "development@jsctm.cz",
+      "url": "https://github.com/JSC-TechMinds",
       "maintainer": true
-    },
-    {
-      "name": "JSC electronics",
-      "email": "development@jsce.cz",
-      "url": "https://github.com/jsc-electronics"
     }
   ],
   "frameworks": "arduino",

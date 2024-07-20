@@ -4,7 +4,7 @@
  * See the documentation of the main class, SimpleRelay, or browse the modules
  * and examples using the sidebar on the left.
  *
- * The latest development version is available on [GitHub](https://github.com/JSC-electronics/SimpleRelay).
+ * The latest development version is available on [GitHub](https://github.com/JSC-TechMinds/SimpleRelay).
  */
 
 /**

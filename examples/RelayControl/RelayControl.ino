@@ -6,7 +6,7 @@
  * In loop() phase, relay state will be periodically changed between "on" and "off" with
  * two-second period.
  *
- * Copyright 2019 JSC electronics
+ * Copyright 2019-2024 JSC TechMinds
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
